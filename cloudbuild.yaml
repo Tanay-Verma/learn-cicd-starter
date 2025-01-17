@@ -4,5 +4,7 @@ steps:
            -t, asia-south2-docker.pkg.dev/notely-448017/notely-ar-repo/notely:latest, .]
 
   - name: gcr.io/cloud-builders/docker
-    args: [push, 'asia-south2-docker.pkg.dev/notely-448017/notely-ar-repo/notely:${_VERSION}',
-           asia-south2-docker.pkg.dev/notely-448017/notely-ar-repo/notely:latest]
+    args: [push, 'asia-south2-docker.pkg.dev/notely-448017/notely-ar-repo/notely:${_VERSION}']
+
+  - name: gcr.io/cloud-builders/docker
+    args: [push, asia-south2-docker.pkg.dev/notely-448017/notely-ar-repo/notely:latest]
