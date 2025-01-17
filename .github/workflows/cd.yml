@@ -20,3 +20,17 @@ jobs:
 
       - name: Build
         run: ./scripts/buildprod.sh
+
+      - name: Auth Gcloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Use gcloud CLI
+        run: gcloud info
+
+      - name: Build Docker Image and Push to Google Artifact Registry
+        run: gcloud builds submit --substitutions=_VERSION=0.1.0
